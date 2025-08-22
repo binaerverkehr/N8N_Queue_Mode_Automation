@@ -1,4 +1,4 @@
-# 🚀 N8N with Workers Template
+# N8N with Workers Template
 
 > **Complete self-hosted n8n stack with Redis queue mode for scalable workflow automation**
 
@@ -12,15 +12,15 @@ A production-ready template that combines **n8n workflow automation**, **Redis q
 
 </div>
 
-## 🔥 Why This Stack is Perfect for Heavy Automation
+##  Why This Stack is Perfect for Heavy Automation
 
-### **⚡ Scalable Architecture**
+### ** Scalable Architecture**
 - **Main n8n Instance** - Handles UI and API while staying responsive
 - **Worker Processes** - Execute workflows in background, scale horizontally  
 - **Redis Queue** - Reliable job distribution and retry handling
 - **PostgreSQL Database** - Enterprise-grade data persistence
 
-### **🐳 One-Command Deployment**
+### ** One-Command Deployment**
 - **Docker Compose** - Complete stack launches with single command
 - **Auto-configuration** - Database, queue, and workers pre-configured
 - **Production Ready** - Health checks, persistence, and monitoring included
@@ -30,7 +30,7 @@ A production-ready template that combines **n8n workflow automation**, **Redis q
 ### Deploy the Complete Stack
 ```bash
 # Clone the repository
-git clone https://github.com/brunosergi/self-hosted-n8n-template.git
+git clone https://github.com/Maksym-TopDev/N8N_Queue_Mode_Automation.git
 cd self-hosted-n8n-template
 
 # Configure environment
@@ -131,7 +131,7 @@ docker exec -it redis redis-cli
 docker compose ps
 ```
 
-## 🏗️ How Queue Mode Works
+##  How Queue Mode Works
 
 1. **Main Instance** - Receives triggers (webhooks, timers) and creates jobs
 2. **Redis Queue** - Stores pending workflow executions
@@ -140,7 +140,7 @@ docker compose ps
 
 This means your UI stays fast even when processing hundreds of workflows!
 
-## 🐛 Quick Troubleshooting
+##  Quick Troubleshooting
 
 **Worker not processing jobs?**
 - Check logs: `docker logs n8n-worker`
