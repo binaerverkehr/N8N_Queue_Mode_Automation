@@ -45,7 +45,14 @@ services:
   n8n:
     container_name: n8n
     image: n8nio/n8n:latest
-    user: "1000:1000"
+    user: root
+    entrypoint: >
+      /bin/sh -c "
+      apk add --no-cache su-exec chromium &&
+      export PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser &&
+      export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true &&
+      su-exec node n8n
+      "
     restart: unless-stopped
     ports: ["${N8N_PORT:-5678}:5678"]
     environment:
@@ -87,6 +94,10 @@ services:
       - EXECUTIONS_DATA_PRUNE_MAX_COUNT=10000
       - N8N_TEMPLATES_ENABLED=true
       - N8N_PUBLIC_API_DISABLED=false
+
+      # Puppeteer
+      - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+      - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 
     volumes:
       - n8n-data:/home/node/.n8n
